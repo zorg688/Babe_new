@@ -2,20 +2,61 @@
 
 
 const trial_info = {
-    forced_choice: [
+    key_Press: [
         {
-            question: "What's on the bread?",
-            picture: "images/question_mark_02.png",
-            option1: 'jam',
-            option2: 'ham',
-            correct: 'jam'
+            question: "Are these figures the same or different?",
+            picture: "images/5_150_different.jpg",
+            key1: 'f',
+            key2: 'j',
+            f: 'same',
+            j: 'different',
+            expected: 'different',
+            num_of_pic: '5',
+            degree: '150'
         },
         {
-            question: "What's the weather like?",
-            picture: "images/weather.jpg",
-            option1: "shiny",
-            option2: "rainbow",
-            correct: "shiny"
+            question: "Are these figures the same or different?",
+            picture: "images/6_50_same.jpg",
+            key1: "f",
+            key2: "j",
+            f: 'same',
+            j: 'different',
+            expected: 'same',
+            num_of_pic: '6',
+            degree: '50'
+        },
+        {
+            question: "Are these figures the same or different?",
+            picture: "images/8_150_same.jpg",
+            key1: "f",
+            key2: "j",
+            f: 'same',
+            j: 'different',
+            expected: 'same',
+            num_of_pic: '8',
+            degree: '150'
+        },
+        {
+            question: "Are these figures the same or different?",
+            picture: "images/2_150_different.jpg",
+            key1: "f",
+            key2: "j",
+            f: 'same',
+            j: 'different',
+            expected: 'different',
+            num_of_pic: '2',
+            degree: '150'
+        },
+        {
+            question: "Are these figures the same or different?",
+            picture: "images/14_50_different.jpg",
+            key1: "f",
+            key2: "j",
+            f: 'same',
+            j: 'different',
+            expected: 'different',
+            num_of_pic: '14',
+            degree: '50'
         }
     ]
 };
