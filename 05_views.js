@@ -37,7 +37,7 @@ const intro = babeViews.view_generator('intro',{
 // For most tasks, you need instructions views
 const instructions = babeViews.view_generator('instructions',{
     trials: 1,
-    name: 'instrucions',
+    name: 'instructions',
     title: 'General Instructions',
     text:  `This is a sample instructions view.
             <br />
