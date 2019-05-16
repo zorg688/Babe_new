@@ -23,14 +23,11 @@ const intro = babeViews.view_generator('intro',{
     trials: 1,
     name: 'intro',
     // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-    text:   `This is a sample introduction view.
+    text:   `Welcome to our experiment!
             <br />
             <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
-            <br />
-            <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
+            Please take your time with these tasks and make sure your full concentration is focused on doing the experiment.
+            You are in the <strong>${coin}</strong> group.`,
    buttonText: 'Begin the experiment'
 });
 
@@ -39,11 +36,25 @@ const instructions = babeViews.view_generator('instructions',{
     trials: 1,
     name: 'instructions',
     title: 'General Instructions',
-    text:  `This is a sample instructions view.
-            <br />
-            <br />
-            Tell your participants what they are to do here.`,
-    buttonText: 'go to trials'
+    text:  `You will be presented two pictures. Your task is to decide if the two forms you see are the same (press"F") or different (press "J"). Please make your decision key as fast as possible.
+            We will start with some practice trials before going to the real expriment.`,
+    buttonText: 'go to practice trials'
+});
+
+const begin_practice = babeViews.view_generator('begin',{
+    trials: 1,
+    name: 'begin_pratice',
+    buttonText: 'Start Practice',
+    title: 'Practice Session',
+    text: 'In the following, you wil be presented some data. Your answers will not be recorded, this part is just to make yourself familiar wih the task. After every example, you will receive a feedback wether your answer was right or wrong.'
+});
+
+const begin_experiment = babeViews.view_generator('begin',{
+    trials: 1,
+    name: 'begin_experiment',
+    buttonText: 'Start actual trials',
+    title: 'Actual trial Session',
+    text: "Now that you've made yourself familiar with the data and task, the real trials will begin. Good luck!"
 });
 
 
@@ -99,16 +110,31 @@ const thanks = babeViews.view_generator('thanks',{
 
 * All about the properties of trial - https://github.com/babe-project/babe-project/blob/master/docs/views.md#properties-of-trial
 */
+const key_press_practice = babeViews.view_generator('key_press',{
+    // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
+    trials: trial_info.key_press_practice_data.length,
+    // name and trial_type should be identical to the variable name
+    name: 'key_press_practice',
+    trial_type: 'key_press_practice',
+    data: _.shuffle(trial_info.key_press_practice_data),
+    pause: 1000,
+    fix_duration: 500,
+    hook: {
+      after_response_enabled: check_response
+    }
+});
 
 
 // Here, we initialize a forcedChoice view
 const key_press = babeViews.view_generator('key_press',{
     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-    trials: key_press_data.length,
+    trials: trial_info.key_press_data.length,
     // name and trial_type should be identical to the variable name
     name: 'key_press',
     trial_type: 'key_press',
-    data: _.shuffle(key_press_data)
+    data: _.shuffle(trial_info.key_press_data),
+    pause: 1000,
+    fix_duration: 500
 });
 
 // There are many more templates available:
