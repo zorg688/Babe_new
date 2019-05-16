@@ -102,13 +102,13 @@ const thanks = babeViews.view_generator('thanks',{
 
 
 // Here, we initialize a forcedChoice view
-const key_press = babeViews.view_generator('key_press'{
+const key_press = babeViews.view_generator('key_press',{
     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-    trials: trial_info.key_press.length,
+    trials: key_press_data.length,
     // name and trial_type should be identical to the variable name
     name: 'key_press',
     trial_type: 'key_press',
-    data: _.shuffle(trial_info.key_press)
+    data: _.shuffle(key_press_data)
 });
 
 // There are many more templates available:
